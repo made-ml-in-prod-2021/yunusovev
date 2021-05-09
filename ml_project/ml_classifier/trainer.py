@@ -4,10 +4,10 @@ import json
 import click
 import logging
 
-from src.utils.utils import read_training_params
-from src.configs.config import TrainingPipelineParams
-from src.data.dataset import read_data, split_data, save_data
-from src.models.model import (
+from ml_classifier.utils.utils import read_training_params
+from ml_classifier.configs.config import TrainingPipelineParams
+from ml_classifier.data.dataset import read_data, split_data, save_data
+from ml_classifier.models.model import (
     save_model,
     evaluate_model,
     extract_target,

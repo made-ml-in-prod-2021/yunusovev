@@ -9,8 +9,8 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score
 import numpy as np
 import pandas as pd
 
-from src.features.preprocessing import build_transformer
-from src.configs.config import ClfParams, FeaturesParams, TrainingPipelineParams
+from ml_classifier.features.preprocessing import build_transformer
+from ml_classifier.configs.config import ClfParams, FeaturesParams, TrainingPipelineParams
 
 SklearnClf = Union[RandomForestClassifier, SGDClassifier]
 

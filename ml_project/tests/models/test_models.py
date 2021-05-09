@@ -7,8 +7,8 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestClassifier
 from faker import Faker
 
-from src.configs.config import ClfParams, TrainingPipelineParams, FeaturesParams
-from src.models.model import (
+from ml_classifier.configs.config import ClfParams, TrainingPipelineParams, FeaturesParams
+from ml_classifier.models.model import (
     build_classifier,
     build_model,
     train_model,

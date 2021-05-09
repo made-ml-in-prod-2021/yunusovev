@@ -2,8 +2,8 @@ import pytest
 from faker import Faker
 import pandas as pd
 
-from src.configs.config import SplittingParams
-from src.data.dataset import (
+from ml_classifier.configs.config import SplittingParams
+from ml_classifier.data.dataset import (
     read_data,
     save_data,
     split_data

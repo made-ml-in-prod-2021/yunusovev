@@ -4,8 +4,8 @@ import pandas as pd
 import pytest
 from faker import Faker
 
-from src.configs.config import FeaturesParams
-from src.features.preprocessing import (
+from ml_classifier.configs.config import FeaturesParams
+from ml_classifier.features.preprocessing import (
     build_bin_pipeline,
     build_cat_pipeline,
     build_num_pipeline,

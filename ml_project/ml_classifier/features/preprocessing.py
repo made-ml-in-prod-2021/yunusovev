@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.base import TransformerMixin, BaseEstimator
 
-from src.configs.config import FeaturesParams
+from ml_classifier.configs.config import FeaturesParams
 
 
 def build_num_pipeline() -> Pipeline:

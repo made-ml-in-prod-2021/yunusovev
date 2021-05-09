@@ -3,7 +3,7 @@ from typing import Dict, Any
 import yaml
 from marshmallow_dataclass import class_schema
 
-from src.configs.config import TrainingPipelineParams, PredictParams
+from ml_classifier.configs.config import TrainingPipelineParams, PredictParams
 
 
 def read_config(path_to_config: str) -> Dict[str, Any]:

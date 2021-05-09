@@ -4,9 +4,9 @@ import pytest
 from faker import Faker
 import pandas as pd
 
-from src.data.dataset import save_data
-from src.trainer import train
-from src.configs.config import (
+from ml_classifier.data.dataset import save_data
+from ml_classifier.trainer import train
+from ml_classifier.configs.config import (
     TrainingPipelineParams,
     ClfParams,
     FeaturesParams,

@@ -4,9 +4,9 @@ import logging
 import pandas as pd
 import click
 
-from src.models.model import load_model, predict_model
-from src.data.dataset import read_data, save_data
-from src.utils.utils import read_predict_params
+from ml_classifier.models.model import load_model, predict_model
+from ml_classifier.data.dataset import read_data, save_data
+from ml_classifier.utils.utils import read_predict_params
 
 
 logger = logging.getLogger(__name__)
