@@ -47,7 +47,7 @@ Project Organization
     ├── setup.py           <- makes project pip installable (pip install .) so src can be imported
     ├── setup.cfg          
     ├── ml_classifier      <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
+    │   ├── __init__.py    
     │   │
     │   ├── configs        <- Dataclases for working with configs
     │   │
