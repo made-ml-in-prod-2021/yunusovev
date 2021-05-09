@@ -3,12 +3,13 @@ output_model_path: 'models/model.pkl'
 metrics_path: 'models/metrics.json'
 splitting_params:
   random_state: 42
-  val_size: 0.2
+  val_size: 0.3
   shuffle: True
-train_params:
+clf_params:
+  model_type: 'SGDClassifier'
   random_state: 42
   loss: 'log'
-  learning_rate: 0.01
+  alpha: 0.01
 feature_params:
   num_features:
     - 'age'
