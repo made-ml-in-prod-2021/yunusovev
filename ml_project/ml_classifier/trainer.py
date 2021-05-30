@@ -1,12 +1,13 @@
-import  sys
+import sys
 import json
+from dataclasses import asdict
 
 import click
 import logging
 
 from ml_classifier.utils.utils import read_training_params
 from ml_classifier.configs.config import TrainingPipelineParams
-from ml_classifier.data.dataset import read_data, split_data, save_data
+from ml_classifier.data.dataset import read_data, split_data
 from ml_classifier.models.model import (
     save_model,
     evaluate_model,
@@ -27,12 +28,12 @@ def train(training_params: TrainingPipelineParams) -> None:
     df = read_data(training_params.input_data_path)
     logger.info(f"Loaded dataset")
     train, val = split_data(df, training_params.splitting_params)
-    logger.info(f'train size: {train.shape[0]}, val size: {val.shape[0]}')
+    logger.info('train size: %s, val size: %s', train.shape[0], val.shape[0])
 
     y_train = extract_target(train, training_params)
     y_val = extract_target(val, training_params)
 
-    logger.info(f'Start training model ({training_params.clf_params})')
+    logger.info('Start training model (%s)', training_params.clf_params)
     model = train_model(
         train,
         y_train,
@@ -43,21 +44,21 @@ def train(training_params: TrainingPipelineParams) -> None:
     pred_val = predict_model(model, val)
 
     save_model(training_params.output_model_path, model)
-    logger.info(f'Saved model to {training_params.output_model_path}')
+    logger.info('Saved model to %s', training_params.output_model_path)
 
     metrics = evaluate_model(y_val, pred_val)
-    logger.info(f'metrics on validate: {metrics}')
+    logger.info('metrics on validate: %s', metrics)
 
     with open(training_params.metrics_path, 'w') as fio:
-        json.dump(metrics, fio)
-    logger.info(f'Saved metrics to {training_params.metrics_path}')
+        json.dump(asdict(metrics), fio)
+    logger.info('Saved metrics to %s', training_params.metrics_path)
     return metrics
 
 
 @click.command(name="train")
 @click.argument('path_to_config')
 def train_command(path_to_config: str) -> None:
-    logger.info(f"Start training by config: {path_to_config}")
+    logger.info("Start training by config: %s", path_to_config)
     training_params = read_training_params(path_to_config)
     metrics = train(training_params)
 

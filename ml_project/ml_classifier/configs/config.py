@@ -43,3 +43,24 @@ class PredictParams:
     input_data_path: str
     output_data_path: str
     model_path: str
+
+
+@dataclass()
+class Metrics:
+    accuracy: float
+    precision: float
+    recall: float
+
+
+@dataclass()
+class TestParams:
+    train_size: int
+    val_size: int
+    model_path: str
+    metrics_path: str
+    sgd_params: ClfParams
+    rf_params: ClfParams
+    splitting_params: SplittingParams
+    feature_params: FeaturesParams
+    target: str
+    input_data_path: str

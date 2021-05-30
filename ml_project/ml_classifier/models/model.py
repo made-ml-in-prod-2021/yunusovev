@@ -1,4 +1,5 @@
 import pickle
+from dataclasses import dataclass
 from typing import Dict, Union
 
 
@@ -10,7 +11,7 @@ import numpy as np
 import pandas as pd
 
 from ml_classifier.features.preprocessing import build_transformer
-from ml_classifier.configs.config import ClfParams, FeaturesParams, TrainingPipelineParams
+from ml_classifier.configs.config import ClfParams, FeaturesParams, TrainingPipelineParams, Metrics
 
 SklearnClf = Union[RandomForestClassifier, SGDClassifier]
 
@@ -76,13 +77,12 @@ def predict_model(model: Pipeline, df: pd.DataFrame) -> np.ndarray:
     return predicts
 
 
-def evaluate_model(predicts: np.ndarray, target: pd.Series) -> Dict[str, float]:
-    metrics = {
-        'accuracy': accuracy_score(y_true=target, y_pred=predicts),
-        'precision': precision_score(y_true=target, y_pred=predicts),
-        'recall': recall_score(y_true=target, y_pred=predicts),
-    }
-    return metrics
+def evaluate_model(predicts: np.ndarray, target: pd.Series) -> Metrics:
+    return Metrics(
+        accuracy=accuracy_score(y_true=target, y_pred=predicts),
+        precision=precision_score(y_true=target, y_pred=predicts),
+        recall=recall_score(y_true=target, y_pred=predicts),
+    )
 
 
 def save_model(path_to_model: str, model: Pipeline) -> None:

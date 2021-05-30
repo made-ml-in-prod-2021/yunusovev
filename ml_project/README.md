@@ -9,12 +9,12 @@ Installation:
 ~~~
 python -m venv .venv
 source .venv/bin/activate
-pip install .
+pip install ".[test, lint]"
 ~~~
 Train:
 ~~~
 # SGDClassidier
-python ml_classifier/trainer.py configs/train_config_sgd.yaml
+python -m ml_classifier.trainer configs/train_config_sgd.yaml
 
 #RandomForestClassifier
 python -m ml_classifier.trainer configs/train_config_rf.yaml
