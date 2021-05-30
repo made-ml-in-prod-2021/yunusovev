@@ -3,7 +3,7 @@ ml_project
 
 Package for classification task
 
-Requirements: Python 3.8+
+Requirements: Python 3.8
 
 Installation: 
 ~~~
