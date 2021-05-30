@@ -14,17 +14,17 @@ pip install ".[test, lint]"
 Train:
 ~~~
 # SGDClassidier
-make train config=configs/train_config_sgd.yaml
+python -m ml_classifier.trainer configs/train_config_sgd.yaml
 
 
 #RandomForestClassifier
-make train config=configs/train_config_rf.yaml
+python -m ml_classifier.trainer configs/train_config_rf.yaml
 
 ~~~
 
 Predict:
 ~~~
-make predict config=configs/predict_config.yaml
+python -m ml_classifier.predict configs/predict_config.yaml
 ~~~
 
 Test:
