@@ -13,7 +13,6 @@ def faker():
     return Faker()
 
 
-#TODO перенести read_test_params, TestParams в conftest
 @pytest.fixture(scope='session')
 def test_params():
     return read_test_params(PATH_TO_CONFIG)
