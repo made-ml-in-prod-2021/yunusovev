@@ -1,0 +1,30 @@
+input_data_path: 'data/heart.csv'
+output_model_path: 'models/model.pkl'
+metrics_path: 'models/metrics.json'
+splitting_params:
+  random_state: 42
+  val_size: 0.3
+  shuffle: True
+clf_params:
+  model_type: 'SGDClassifier'
+  random_state: 42
+  loss: 'log'
+  alpha: 0.01
+feature_params:
+  num_features:
+    - 'age'
+    - 'cp'
+    - 'trestbps'
+    - 'chol'
+    - 'thalach'
+    - 'oldpeak'
+  cat_features:
+    - 'thal'
+    - 'restecg'
+    - 'ca'
+    - 'slope'
+  bin_features:
+    - 'sex'
+    - 'fbs'
+    - 'exang'
+target: 'target'

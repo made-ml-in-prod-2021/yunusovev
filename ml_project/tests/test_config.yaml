@@ -1,0 +1,28 @@
+train_size: 100
+val_size: 20
+input_data_path: 'tmp_data.csv'
+model_path: 'tmp_model.pkl'
+metrics_path: 'tmp_metrics.json'
+sgd_params:
+  model_type: 'SGDClassifier'
+  random_state: 218
+  alpha: 0.001
+rf_params:
+  model_type: 'RandomForestClassifier'
+  random_state: 313
+  n_estimators: 20
+target: 'target'
+splitting_params:
+  random_state: 42
+  val_size: 0.3
+  shuffle: True
+feature_params:
+  bin_features:
+    - 'bin_field_1'
+    - 'bin_field_2'
+  cat_features:
+    - 'cat_field_1'
+    - 'cat_field_2'
+  num_features:
+    - 'num_field_1'
+    - 'num_field_2'
